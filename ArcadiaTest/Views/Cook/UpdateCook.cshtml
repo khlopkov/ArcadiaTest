@@ -1,0 +1,135 @@
+@model UpdateCookRequest
+@using ArcadiaTest.BusinessLayer.DTO
+@{
+    CookDTO cook = ViewBag.Cook;
+    IEnumerable<RestaurantDTO> restaurants = ViewBag.Restaurants;
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript" language="javascript">
+    checkQualifications = (form) => {
+        var div = document.getElementById("qualification-checkboxes");
+        var inputs = div.getElementsByTagName("input");
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].checked === true) {
+                return true;
+            }
+        }
+        qualificationErrorMessage();
+        return false;
+    }
+    qualificationErrorMessage = () => {
+        var span = document.getElementById("qualification-error");
+        span.innerHTML = "At least one qualification should be chosen";
+    }
+</script>
+
+<div class="text-center">
+    <h4 class="display-4">Update cook</h4>
+</div>
+
+<div class="form-group box-shadow">
+    <form method="post" onsubmit="return checkQualifications()">
+        <p>
+            <span>First Name: </span>
+            <input type="text" asp-for="FirstName" value="@cook.Name"/>
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </p>
+        <p>
+            <span> Second Name: </span>
+            <input type="text" asp-for="SecondName" value="@cook.SecondName"/>
+            <span asp-validation-for="SecondName" class="text-danger"></span>
+        </p>
+        <p>
+            <span> LastName: </span>
+            <input type="text" asp-for="LastName" value="@cook.LastName"/>
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </p>
+        <p>
+            <span> Work graphic: </span>
+            <select name="Workdays">
+                @if (cook.Workdays == CookDTO.WorkdaysType.Two)
+                {
+                    <option value="5">5/2</option>
+                    <option value="2" selected>2/2</option>
+                }
+                else
+                {
+                    <option value="5" selected>5/2</option>
+                    <option value="2">2/2</option>
+                }
+            </select>
+        </p>
+        <p>
+            <span> Workday length: </span>
+            <input type="number" value="@cook.WorkdayLength" step="1" placeholder="4" min="4" max="10" asp-for="WorkdayLength"/>
+            <span asp-validation-for="WorkdayLength" class="text-danger"></span>
+        </p>
+        <p>
+            <div id="qualification-checkboxes">
+                <span> Qualifications: </span><br>
+                @if (cook.Qualifications.Contains(CookDTO.QualificationsType.Russian))
+                {
+                    <span>Russian: </span><input onchange="checkQualifications()" checked name="Qualification" type="checkbox" value="russian"/><br>
+                }
+                else
+                {
+                    <span>Russian: </span><input onchange="checkQualifications()" name="Qualification" type="checkbox" value="russian"/><br>
+                }
+                @if (cook.Qualifications.Contains(CookDTO.QualificationsType.Italian))
+                {
+                    <span>Italian: </span><input onchange="checkQualifications()" checked name="Qualification" type="checkbox" value="italian"/><br>
+                }
+                else
+                {
+                    <span>Italian: </span><input onchange="checkQualifications()" name="Qualification" type="checkbox" value="italian"/><br>
+                }
+                @if (cook.Qualifications.Contains(CookDTO.QualificationsType.Japanese))
+                {
+                    <span>Japanese: </span><input onchange="checkQualifications()" checked name="Qualification" type="checkbox" value="japanese"/><br>
+                }
+                else
+                {
+                    <span>Japanese: </span><input name="Qualification" type="checkbox" value="japanese"/><br>
+                }
+                <span id="qualification-error" class="text-danger"></span>
+            </div>
+        </p>
+        <p>
+            <span> Shift: </span><br>
+            <select name="Shift">
+                @if (cook.Shift == CookDTO.ShiftType.Evening)
+                {
+                    <option value="evening" selected>Evening</option>
+                    <option value="morning">Morning</option>
+                }
+                else
+                {
+                    <option value="evening">Evening</option>
+                    <option value="morning" selected>Morning</option>
+                }
+            </select>
+        </p>
+        <p>
+            <span>Restaurant: </span><br>
+            <select name="RestaurantId">
+                @foreach (var r in restaurants)
+                {
+                    if (r.Id == cook.RestaurantId)
+                    {
+                        <option value="@r.Id" selected>@r.Title</option>
+                    }
+                    else
+                    {
+                        <option value="@r.Id">@r.Title</option>
+                    }
+                }
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="Update"/>
+        </p>
+    </form>
+</div>

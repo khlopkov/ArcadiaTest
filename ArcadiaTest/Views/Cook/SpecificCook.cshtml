@@ -1,0 +1,61 @@
+@using ArcadiaTest.BusinessLayer.DTO
+@{
+    CookDTO cook = ViewBag.Cook;
+    ViewData["Title"] = "Cook " + cook.LastName + " " + cook.Name + " " + cook.SecondName ?? "";
+}
+<!DOCTYPE html>
+
+<div class="text-center">
+    <h3 class="display-4">Cook's @cook.LastName @cook.Name @cook.SecondName profile</h3>
+</div>
+<div class="management-panel box-shadow">
+    <a class="button" asp-controller="Cook" asp-action="UpdateCook" asp-route-id="@ViewBag.Cook.Id">Update</a>
+    <a class="button" asp-controller="Cook" asp-action="DeleteCook" asp-route-id="@ViewBag.Cook.Id">Delete</a>
+</div>
+<div class="profile box-shadow">
+    <div class="profile-left">
+        <p>Name: @cook.LastName @cook.Name @cook.SecondName</p>
+        <p>Workday length: @cook.WorkdayLength</p>
+        @if (cook.Workdays == CookDTO.WorkdaysType.Five)
+        {
+            <p>Work graphic: 5/2</p>
+        }
+        else
+        {
+            <p>Work graphic: 2/2</p>
+        }
+        @if (cook.Shift == CookDTO.ShiftType.Evening)
+        {
+            <p>Shift: evening</p>
+        }
+        else
+        {
+            <p>Shift: morning</p>
+        }
+        <a asp-controller="Restaurant" asp-action="SpecificRestaurant" asp-route-id="@cook.RestaurantId">Restaurant</a>
+        
+    </div>
+    <div class="profile-right">
+        <table class="information_table">
+            <thead>
+            <tr><th>Qualification</th></tr>
+            </thead>
+            @foreach (CookDTO.QualificationsType qual in cook.Qualifications)
+            {
+                 switch (qual)
+                 {
+                     case CookDTO.QualificationsType.Italian:
+                         <tr><td>Italian</td></tr>
+                         break;
+                     case CookDTO.QualificationsType.Russian:
+                         <tr><td>Russian</td></tr>
+                         break;
+                     case CookDTO.QualificationsType.Japanese:
+                         <tr><td>Japanese</td></tr>
+                         break;
+                 }
+            }
+        </table>
+    </div>
+
+</div>

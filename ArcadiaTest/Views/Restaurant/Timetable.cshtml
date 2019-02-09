@@ -1,0 +1,55 @@
+@using ArcadiaTest.BusinessLayer.DTO
+@{
+    IEnumerable<IEnumerable<DayGraphic>> timetable = ViewBag.Timetable;
+    var i = 1;
+}
+
+@foreach (var day in timetable)
+{
+    var now = DateTime.Now;
+    var date = new DateTime(now.Year, now.Month, i).ToString("yyyy-MM-dd");
+    i += 1;
+                
+            
+    <div class="timetable-day box-shadow">
+        <span>@date</span>
+        <table class="information_table">
+            <thead>
+            <tr>
+                <td>Cook</td>
+                <td>Workday</td>
+                <td>Kitchen</td>
+            </tr>
+            </thead>
+            @foreach (var dayGraphic in day)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Cook" asp-action="SpecificCook" asp-route-id="@dayGraphic.Worker.Id">
+                            @dayGraphic.Worker.LastName @dayGraphic.Worker.Name @dayGraphic.Worker.SecondName
+                        </a>
+                    </td>
+                    <td>
+                        @dayGraphic.DayStart:00 - @dayGraphic.DayEnd:00;
+                    </td>
+                    <td>
+                        @switch (dayGraphic.Kitchen)
+                        {
+                            case CookDTO.QualificationsType.Italian:
+                                <span>Italian</span>
+                                break;
+                            case CookDTO.QualificationsType.Russian:
+                                <span>Russian</span>
+                                break;
+                            case CookDTO.QualificationsType.Japanese:
+                                <span>Japanese</span>
+                                break;
+                        }
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+}
+

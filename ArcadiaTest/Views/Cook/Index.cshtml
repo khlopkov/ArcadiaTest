@@ -1,0 +1,37 @@
+@using ArcadiaTest.BusinessLayer.DTO
+@{
+    ViewData["Title"] = "Cooks";
+}
+<!DOCTYPE html>
+
+<div class="text-center">
+    <h3 class="display-4">Cooks list</h3>
+</div>
+        
+<table class="information_table">
+    <thead>
+        <tr>
+            <td>
+                <p>Link</p></td>
+            <td>
+                <p>Name</p></td>
+            <td>
+            <p>Restaurant</p></td>
+        </tr>
+    </thead>
+    @foreach (CookDTO c in ViewBag.Cooks)
+    {
+        <tr>
+            <td>
+                <a asp-controller="Cook" asp-action="SpecificCook" asp-route-id="@c.Id">
+                    View cook's profile
+                </a></td>
+            <td>
+                <p>@c.LastName @c.Name @c?.SecondName</p></td>
+            <td>
+                <a asp-controller="Restaurant" asp-action="SpecificRestaurant" asp-route-id="@c.RestaurantId">
+                    View restaurant profile
+                </a></td>
+        </tr>
+    }
+</table>

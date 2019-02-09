@@ -1,0 +1,209 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a {
+  color: #954a4a;
+}
+
+a:hover {
+  color: #954a4a;
+}
+
+.button {
+    margin: 5px 5px 5px 5px;
+    height: 40px;
+    font-size: 18px;
+    color: #f2f2f2;
+    background-color: #954a4a;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+}
+
+.button:hover {
+    color: #f2f2f2;
+    text-decoration: none;
+    box-shadow: 1px 0 3px #acacac;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+
+/* Table style */
+.information_table {
+  margin-top: 50px;
+  width: 100%;
+  font-size: 16px;
+  border-collapse: collapse;
+  line-height: 30px;
+  text-align: left;
+}
+
+.information_table thead{
+  font-size: 20px;
+}
+
+.information_table tr {
+  border-bottom: 1px solid #e5e5e5;
+  height: 60px;
+  box-shadow: 1px 0 3px #f2f2f2;
+}
+
+.information_table > tbody > tr:hover{
+  background-color: #f2f2f2;
+}
+
+.information_table p {
+  margin-bottom: 0;
+}
+
+.information_table > tbody > tr:hover{
+    background-color: #f2f2f2;
+}
+
+.information_table p {
+    margin-bottom: 0;
+}
+
+/* Profile settings */
+
+.profile {
+    display: block;
+    margin: 40px 5px 40px 0px;
+    text-align: left;
+    font-size: 18px;
+    float: left;
+    width: 100%;
+}
+
+.profile .profile-left{
+    float: left;
+    width: 40%;
+}
+
+.profile .profile-right{
+    float: left;
+    width: 55%;
+}
+
+.profile-right table {
+    margin: 0;
+}
+
+/* Management panel style */
+
+.management-panel {
+    margin: 10px 0 10px 0;
+    float: right;
+}
+
+/* Profile settings */
+
+.profile {
+    display: block;
+    margin: 40px 5px 40px 0px;
+    text-align: left;
+    font-size: 18px;
+    float: left;
+    width: 100%;
+    padding: 10px 20px 10px 20px;
+}
+
+.profile .profile-left{
+    float: left;
+    width: 40%;
+}
+
+.profile .profile-right{
+    float: left;
+    width: 55%;
+}
+
+.profile-right table {
+    margin: 0;
+}
+
+/* Management panel style */
+
+.management-panel {
+    width: 100%;
+    margin: 20px 0 20px 0;
+    padding: 10px 20px 10px 20px;
+}
+
+.management-panel .button{
+    float: right;
+}
+
+/* Forms style */
+
+.form-group{
+    margin: 30px 0 30px 0;
+    padding: 10px 20px 10px 20px;
+}
+
+.form-group .required-field:after{
+    content: "*";
+    color: #954a4a;
+}
+
+/* Timetable style */
+
+.timetable-day{
+    width: 100%;
+    float: left;
+    padding: 30px 20px 30px 20px;
+}

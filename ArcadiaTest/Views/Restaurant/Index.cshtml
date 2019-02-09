@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Restaurants";
+}
+<!DOCTYPE html>
+
+<div class="text-center">
+    <h3 class="display-4">Restaurnats</h3>
+</div>
+<table class="information_table">
+    <thead>
+        <tr>
+            <td>
+                <p>Title</p></td>
+            <td>
+                <p>Restaurant profile link</p></td>
+        </tr>
+    </thead>
+    @foreach (var b in ViewBag.Restaurants)
+    {
+        <tr>
+            <td>
+                <p>@b.Title</p></td>
+            <td><a asp-controller="Restaurant" asp-action="SpecificRestaurant" asp-route-id="@b.Id">View</a></td>
+        </tr>
+    }
+</table>
