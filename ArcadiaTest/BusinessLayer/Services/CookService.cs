@@ -5,7 +5,6 @@ using ArcadiaTest.BusinessLayer.DTO;
 using ArcadiaTest.BusinessLayer.Exceptions;
 using ArcadiaTest.DataLayer.Entities;
 using ArcadiaTest.DataLayer.Repositories;
-using Microsoft.AspNetCore.Mvc.Internal;
 
 namespace ArcadiaTest.BusinessLayer.Services
 {

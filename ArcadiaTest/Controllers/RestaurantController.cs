@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using ArcadiaTest.BusinessLayer.DTO;
@@ -6,8 +5,6 @@ using ArcadiaTest.BusinessLayer.Exceptions;
 using ArcadiaTest.BusinessLayer.Services;
 using ArcadiaTest.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.EntityFrameworkCore.Internal;
 
 namespace ArcadiaTest.Controllers
 {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ArcadiaTest.DataLayer.Entities
+﻿namespace ArcadiaTest.DataLayer.Entities
 {
     public class CookQualifications
     {

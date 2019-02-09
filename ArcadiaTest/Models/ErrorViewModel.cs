@@ -1,5 +1,3 @@
-using System;
-
 namespace ArcadiaTest.Models
 {
     public class ErrorViewModel
